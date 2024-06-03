@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="short icon" href="image/Youtube_logo.png" type="image/x-icon">
+    <link  href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* Styles for the video container */
+        .video-container {
+            width: 100px;
+            
+        }
+    
+        /* Styles for the video */
+        video {
+            width: 100%;
+            height: auto;
+        }
+    
+        /* Styles for video controls */
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        /* Styles for play/pause button */
+        .play-pause-button {
+            color: white;
+            cursor: pointer;
+        }
+    
+        /* Styles for progress bar */
+        .progress-bar {
+            flex: 1;
+            margin: 0 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 5px;
+            position: relative;
+        }
+    
+        .progress-bar .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: red;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-container"></div>
+        <i class="ri-menu-line"></i>
+        <div class="logo">
+            <div class="logo-img">
+                <img src="image/587.png" alt="">
+            </div>
+            <h1 id="logo-txt">YouTube</h1>
+
+        </div>
+
+        <div class="search-container">
+            <form action="">
+                <input type="text" placeholder="Search"> 
+            </form>
+            <button class="search"><i class="ri-search-line"></i></button>
+            <button class="mic"><i class="ri-mic-fill"></i></button>
+            
+            
+        </div>
+
+        <div class="profile-container">
+            <i class="ri-video-add-line"></i>
+            <i class="ri-grid-fill"></i>
+            <i class="ri-notification-4-line"></i>
+            <div class="profile-box">
+                <img src="image/2.jpg" alt="">
+
+            </div>
+
+        </div>
+
+
+    </div> 
+    <div class="body-container">
+        <div class="sidebar">
+            <div class="sidebar-items">
+                <a href="youtube.html" class="sidebar-item"><i class="ri-home-5-line"></i>Home</a>
+                <a href="#" class="sidebar-item"><i class="ri-compass-3-line"></i>Explore</a>
+                <a href="shorts.html" class="sidebar-item"><i class="ri-wireless-charging-line"></i>Shorts</a>
+                <a href="#" class="sidebar-item"><i class="ri-rss-line"></i>Subscription</a>
+                <hr>
+                <hr>
+                <h4 class="more">More from Youtube</h4>
+                <a href="#" class="sidebar-item"><i class="ri-keyboard-box-line"></i>Gaming</a>
+                <a href="#" class="sidebar-item"><i class="ri-live-line"></i>Live</a>
+                <a href="#" class="sidebar-item"><i class="ri-award-line"></i>Sports</a>
+                
+
+
+
+            </div>
+
+        </div>
+        <div class="content">
+            
+            <div class="video-container">
+    <video id="video" controls >
+        <source src="video/pantripiko.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+        <div class="play-pause-button" onclick="togglePlayPause()">▶️</div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById('video');
+    const progressBar = document.querySelector('.progress-bar');
+    const progress = document.querySelector('.progress');
+
+    // Function to toggle play/pause
+    function togglePlayPause() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    // Update progress bar
+    video.addEventListener('timeupdate', () => {
+        const percent = (video.currentTime / video.duration) * 100;
+        progress.style.width = percent + '%';
+    });
+</script>
+
+            
+        </div>
+    </div>
+</body>
+
+
+</html>
